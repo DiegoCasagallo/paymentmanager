@@ -1,0 +1,29 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+             https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="3.0">
+  <persistence-unit name="PaymentManagerPU" transaction-type="RESOURCE_LOCAL">
+      <class>ec.edu.uce.model.Customer</class>
+      <class>ec.edu.uce.model.Account</class>
+      <class>ec.edu.uce.model.Payment</class>
+      <class>ec.edu.uce.model.Product</class>
+
+    <properties>
+      <!-- Configuración JDBC -->
+      <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/paymentdb"/>
+      <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+      <property name="jakarta.persistence.jdbc.password" value="labcom,2015"/>
+
+      <!-- Configuración Hibernate -->
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+      <property name="jakarta.persistence.provider" value="org.hibernate.jpa.HibernatePersistenceProvider"/>
+
+      <!-- Opcional: Configuración adicional -->
+      <property name="hibernate.hbm2ddl.auto" value="update"/> <!-- Opciones: create, update, validate -->
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+    </properties>
+  </persistence-unit>
+</persistence>
